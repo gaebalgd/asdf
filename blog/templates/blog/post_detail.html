@@ -1,11 +1,21 @@
-<h1> {{ post.title }} </h1>
+{% extends "blog/index.html" %}
 
-<img src="{{ post.photo.url }}" />
+{% block content %}
 
-<hr/>
+	<h1> {{ post.title }} </h1>
 
-{{ post.content }}
+	<img src="{{ post.photo.url }}" />
 
-<hr/>
+	<hr/>
 
-<a href="{% url "blog.views.post_list" %}">글목록으로</a>
+	{{ post.content }}
+
+	<hr/>
+
+	<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="600" data-numposts="5"></div>
+
+	<hr/>
+
+	<a href="{% url "blog.views.post_list" %}">글목록으로</a>
+
+{% endblock %}
